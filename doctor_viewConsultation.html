@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Consultation - ABC Clinic</title>
+
+    <link rel="stylesheet"
+    href="doctor_dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!--Side Bar-->
+    <aside class="sidebar">
+
+        <div>
+
+            <!--Profile-->
+            <div class="sidebar-top">
+
+                <div class="profile-circle">
+
+                    <!-- <img src="doctor.jpg"> -->
+
+                </div>
+
+                <div class="profile-name">
+
+                    <h2>Ms. Taroy</h2>
+                    <p>Doctor</p>
+
+                </div>
+
+            </div>
+
+            <!--Menu-->
+            <nav class="sidebar-menu">
+
+                <a href="doctor_dashboard.html"
+                class="menu-item">
+
+                    Home
+
+                </a>
+
+                <a href="doctor_assignedPatient.html"
+                class="menu-item active">
+
+                    Assigned Patients
+
+                </a>
+
+                <a href="doctor_followupPatient.html"
+                class="menu-item">
+
+                    Follow up Patients
+
+                </a>
+
+                <a href="#"
+                class="menu-item logout-btn">
+
+                    Logout
+
+                </a>
+
+            </nav>
+
+        </div>
+
+    </aside>
+
+    <!--Pinaka MAin-->
+    <main class="main-content">
+
+        <div class="dashboard-container">
+
+            <!--para sa back button-->
+            <a href="doctor_assignedPatient.html"
+            class="back-btn">
+
+                ← Go to Assigned Patients
+
+            </a>
+
+            <!--Topbar-->
+            <header class="topbar">
+
+                <div class="clinic-info">
+
+                    <img src="logo.png"
+                    alt="Clinic Logo"
+                    class="clinic-logo">
+
+                    <div>
+
+                        <h1>ABC Clinic</h1>
+                        <p>Doctor Dashboard > Consultation Room</p>
+
+                    </div>
+
+                </div>
+
+                <!--Right Box-->
+                <div class="admin-box">
+                    Doctor
+                </div>
+
+            </header>
+
+            <!--Form-->
+            <div class="forms-container">
+
+                <!--Consultation Form-->
+                <section class="section-card">
+
+                    <div class="section-header">
+                        Consultation Form
+                    </div>
+
+                    <div class="section-body">
+
+                        <span class="patient-highlight">
+                            Patient: Juan Dela Cruz
+                        </span>
+
+                        <div class="form-grid">
+
+                            <div class="input-group">
+
+                                <label>Blood Pressure</label>
+
+                                <input type="text"
+                                placeholder="e.g., 120/80">
+
+                            </div>
+
+                            <div class="input-group">
+
+                                <label>Temperature (°C)</label>
+
+                                <input type="text"
+                                placeholder="e.g., 36.5">
+
+                            </div>
+
+                            <div class="input-group">
+
+                                <label>Weight (kg)</label>
+
+                                <input type="text"
+                                placeholder="e.g., 70">
+
+                            </div>
+
+                            <div class="input-group full-width">
+
+                                <label>Treatment Plan</label>
+
+                                <textarea rows="3"
+                                placeholder="Enter treatment plan details..."></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <div class="btn-container">
+
+                            <button class="save-btn">
+
+                                Save Consultation
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!--Prescription Form-->
+                <section class="section-card">
+
+                    <div class="section-header">
+                        Prescription Form
+                    </div>
+
+                    <div class="section-body">
+
+                        <table class="prescription-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Medication Name</th>
+                                    <th>Dosage</th>
+                                    <th>Frequency</th>
+                                    <th>Duration</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text"
+                                        value="Biogesic">
+                                    </td>
+
+                                    <td>
+                                        <input type="text"
+                                        value="500 mg">
+                                    </td>
+
+                                    <td>
+                                        <input type="text"
+                                        value="3x a day">
+                                    </td>
+
+                                    <td>
+                                        <input type="text"
+                                        value="5 days">
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <input type="text"
+                                        value="Amoxicillin">
+                                    </td>
+
+                                    <td>
+                                        <input type="text"
+                                        value="250 mg">
+                                    </td>
+
+                                    <td>
+                                        <input type="text"
+                                        value="2x a day">
+                                    </td>
+
+                                    <td>
+                                        <input type="text"
+                                        value="7 days">
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                        <div class="input-group">
+
+                            <label>Additional Notes:</label>
+
+                            <textarea rows="3"></textarea>
+
+                        </div>
+
+                        <div class="btn-container">
+
+                            <button class="save-btn">
+
+                                Save Prescription
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!--Follow up Form-->
+                <section class="section-card">
+
+                    <div class="section-header">
+                        Follow up Form
+                    </div>
+
+                    <div class="section-body">
+
+                        <div class="form-grid">
+
+                            <div class="input-group full-width">
+
+                                <label>
+                                    Does Patient need Follow-up?
+                                </label>
+
+                                <div class="radio-group">
+
+                                    <label class="radio-item">
+
+                                        <input type="radio"
+                                        name="followup"
+                                        value="yes">
+
+                                        YES
+
+                                    </label>
+
+                                    <label class="radio-item">
+
+                                        <input type="radio"
+                                        name="followup"
+                                        value="no">
+
+                                        NO
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="input-group">
+
+                                <label>Follow up Date</label>
+
+                                <input type="date"
+                                value="2026-05-27">
+
+                            </div>
+
+                            <div class="input-group full-width">
+
+                                <label>
+                                    Additional Instructions
+                                </label>
+
+                                <textarea rows="3"
+                                placeholder="Enter instructions..."></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <div class="btn-container">
+
+                            <button class="save-btn">
+
+                                Save Follow-up
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

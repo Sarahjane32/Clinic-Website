@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinic Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.login-box{
+    width:380px;
+    background:white;
+    border-radius:18px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+.login-header{
+    background:#17324d;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+form{
+    padding:25px;
+}
+
+.form-group{
+    margin-bottom:15px;
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:#334155;
+}
+
+input, select{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    font-size:14px;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    background:#02529c;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.login-btn:hover{
+    background:#013d75;
+}
+
+.error{
+    color:red;
+    font-size:12px;
+    margin-top:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="login-header">
+        <h2>CLINIC LOGIN</h2>
+    </div>
+
+    <form onsubmit="loginUser(event)">
+
+        <div class="form-group">
+            <label>User Type</label>
+            <select id="userType" required>
+                <option value="">Select</option>
+                <option value="admin">Admin</option>
+                <option value="doctor">Doctor</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" required>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" required>
+        </div>
+
+        <div id="errorMsg" class="error"></div>
+
+        <button class="login-btn" type="submit">
+            LOGIN
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+function loginUser(event){
+    event.preventDefault();
+
+    const role = document.getElementById("userType").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMsg = document.getElementById("errorMsg");
+
+    errorMsg.textContent = "";
+
+    //For Admin Account toh
+    const adminUsers = [
+        "Arcenal",
+        "Bayani",
+        "Garduque",
+        "Macas",
+        "Taroy",
+        "Tomadong"
+    ];
+
+    //For Doctor Account
+    const doctorUsers = [
+        "Arcenal",
+        "Bayani",
+        "Garduque",
+        "Macas",
+        "Taroy",
+        "Tomadong"
+    ];
+
+    //Admin Log in-----------------------------------------
+    if(
+        role === "admin" &&
+        adminUsers.includes(username) &&
+        password === "admin"
+    ){
+         //sini-save yung admin name
+        localStorage.setItem("loggedInUser", username);
+        localStorage.setItem("userRole", "Admin");
+
+        window.location.href = "admin_dashboard.html";
+    }
+
+    //Doctor log in--------------------------------------------
+    else if(
+        role === "doctor" &&
+        doctorUsers.includes(username) &&
+        password === "doctor"
+    ){
+        //nag ssave ng doctor name
+        localStorage.setItem("loggedInUser", username);
+        localStorage.setItem("userRole", "Doctor");
+        
+        window.location.href = "doctor_dashboard.html";
+    }
+
+    else{
+        errorMsg.textContent = "Invalid username or password";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Doctor Dashboard</title>
+
+<link rel="stylesheet"
+href="doctor_dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!--Sidebar-->
+    <aside class="sidebar">
+
+        <div>
+
+            <!--For Profile-->
+            <div class="sidebar-top">
+
+                <!--Para sa bilog-->
+                <div class="profile-circle">
+
+                    <!-- <img src="doctor.jpg"> -->
+
+                </div>
+
+                <div class="profile-name">
+
+                    <h2 id="doctorName"></h2>
+                    <p id="doctorRole"></p>
+
+                </div>
+
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="doctor_dashboard.html"
+                class="menu-item active">
+
+                    Home
+
+                </a>
+
+                <a href="doctor_assignedPatient.html"
+                class="menu-item">
+
+                    Assigned Patients
+
+                </a>
+
+                <a href="doctor_followupPatient.html"
+                class="menu-item">
+
+                    Follow up Patients
+
+                </a>
+
+                <a href="#"
+                class="menu-item logout-btn">
+
+                    Logout
+
+                </a>
+
+            </nav>
+
+        </div>
+
+    </aside>
+
+    <!--Main Content-->
+    <main class="main-content">
+
+        <!--Top bar-->
+        <header class="topbar">
+
+            <div class="clinic-info">
+
+                <img src="logo.png"
+                alt="Clinic Logo"
+                class="clinic-logo">
+
+                <div>
+
+                    <h1>ABC Clinic</h1>
+                    <p>Doctor Dashboard</p>
+
+                </div>
+
+            </div>
+
+            <div class="admin-box">
+                Doctor
+            </div>
+
+        </header>
+
+        <section class="summary-box">
+
+            <div class="summary-item">
+
+                <h2>Today's Appointments</h2>
+                <p>10</p>
+
+            </div>
+
+            <div class="summary-item">
+
+                <h2>Pending Follow-ups</h2>
+                <p>4</p>
+
+            </div>
+
+        </section>
+
+        <!--Todays Patient-->
+        <section class="patient-section">
+
+            <div class="section-header">
+                Today's Patient
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Patient Name</th>
+                        <th>Time</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Juan Dela Cruz</td>
+                        <td>4:00 AM</td>
+
+                        <td>
+
+                            <span class="status waiting">
+                                Waiting
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Maria Lopez</td>
+                        <td>5:00 AM</td>
+
+                        <td>
+
+                            <span class="status done">
+                                Done
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+
+const name = localStorage.getItem("loggedInUser");
+const role = localStorage.getItem("userRole");
+
+/*Para sa left sidebar*/
+document.getElementById("doctorName").innerHTML =
+"Ms. " + name;
+
+document.getElementById("doctorRole").innerHTML =
+role;
+
+</script>
+
+</body>
+</html>

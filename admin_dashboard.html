@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+        href="admin_dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!--Side bar-->
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="sidebar-top">
+
+                <div class="profile-circle"></div>
+
+                <div class="profile-name">
+
+                    <h2 id="adminName"></h2>
+                    <p id="adminRole"></p>
+
+                </div>
+
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin_dashboard.html"
+                    class="menu-item active"
+                    onclick="closeDropdown()">
+
+                    Dashboard
+
+                </a>
+
+                <!--Patient Dropdown-->
+                <div class="dropdown">
+
+                    <button class="menu-item dropdown-btn"
+                        onclick="toggleDropdown()">
+
+                        Patients
+
+                    </button>
+
+                    <div class="dropdown-content"
+                        id="patientDropdown">
+
+                        <a href="admin_registerPatient.html"
+                            class="dropdown-item">
+
+                            Register Patient
+
+                        </a>
+
+                        <a href="admin_patientRecord.html"
+                            class="dropdown-item">
+
+                            Search Patient Records
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!--Appointment-->
+                <a href="admin_appointment.html"
+                    class="menu-item"
+                    onclick="closeDropdown()">
+
+                    Appointments
+
+                </a>
+
+                <!--Doctors-->
+                <a href="#"
+                    class="menu-item"
+                    onclick="closeDropdown()">
+
+                    Doctors
+
+                </a>
+
+                <!--Log out-->
+                <a href="#"
+                    class="menu-item logout-btn"
+                    onclick="closeDropdown()">
+
+                    Logout
+
+                </a>
+
+            </nav>
+
+        </div>
+
+    </aside>
+
+    <!--Main Content-->
+    <main class="main-content">
+
+        <!--Top Bar-->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <img src="logo.png"
+                    alt="Clinic Logo"
+                    class="clinic-logo">
+
+                <div class="clinic-text">
+
+                    <h1>ABC Clinic</h1>
+                    <p>Clinic Appointment System</p>
+
+                </div>
+
+            </div>
+
+            <div class="admin-box">
+                Admin
+            </div>
+
+        </header>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <h3>Total Patients</h3>
+                <p>120</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Today</h3>
+                <p>18</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Doctors</h3>
+                <p>6</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Follow Up</h3>
+                <p>12</p>
+
+            </div>
+
+        </section>
+
+        <section class="table-section">
+
+            <div class="section-header">
+                Recent Appointments
+            </div>
+
+            <table class="appointment-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Patient Name</th>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Juan Dela Cruz</td>
+                        <td>Dr. Santos</td>
+                        <td>05/22/2026</td>
+
+                        <td>
+
+                            <span class="status confirmed">
+                                Confirmed
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Maria Lopez</td>
+                        <td>Dr. Reyes</td>
+                        <td>05/23/2026</td>
+
+                        <td>
+
+                            <span class="status pending">
+                                Pending
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+
+const dropdown =
+    document.getElementById(
+        "patientDropdown"
+    );
+
+/*Toggle Dropdown*/
+function toggleDropdown(){
+
+    dropdown.classList.toggle("show");
+
+    if(dropdown.classList.contains("show")){
+
+        localStorage.setItem(
+            "patientDropdown",
+            "open"
+        );
+
+    }else{
+
+        localStorage.setItem(
+            "patientDropdown",
+            "closed"
+        );
+
+    }
+
+}
+
+/*Close Dropdown*/
+function closeDropdown(){
+
+    localStorage.setItem(
+        "patientDropdown",
+        "closed"
+    );
+
+}
+
+window.onload = function(){
+
+    if(localStorage.getItem(
+        "patientDropdown") === "open"){
+
+        dropdown.classList.add("show");
+
+    }
+
+}
+</script>
+
+<script>
+const name = localStorage.getItem("loggedInUser");
+const role = localStorage.getItem("userRole");
+
+/*Para sa Name*/
+document.getElementById("adminName").innerHTML =
+    "Ms. " + name;
+
+document.getElementById("adminRole").innerHTML =
+    role;
+</script>
+ 
+
+
+</body>
+</html>

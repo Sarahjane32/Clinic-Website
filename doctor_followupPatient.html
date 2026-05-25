@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Follow-up Patients</title>
+
+    <link rel="stylesheet"
+    href="doctor_dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!--Side bar-->
+    <aside class="sidebar">
+
+        <div>
+
+            <!--For Profile-->
+            <div class="sidebar-top">
+
+                <div class="profile-circle">
+
+                    <!-- <img src="doctor.jpg"> -->
+
+                </div>
+
+                <div class="profile-name">
+
+                    <h2 id="doctorName"></h2>
+                    <p id="doctorRole"></p>
+
+                </div>
+
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="doctor_dashboard.html"
+                class="menu-item">
+
+                    Home
+
+                </a>
+
+                <a href="doctor_assignedPatient.html"
+                class="menu-item">
+
+                    Assigned Patients
+
+                </a>
+
+                <a href="doctor_followupPatient.html"
+                class="menu-item active">
+
+                    Follow-up Patients
+
+                </a>
+
+                <a href="#"
+                class="menu-item logout-btn">
+
+                    Logout
+
+                </a>
+
+            </nav>
+
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+    
+        <header class="topbar">
+
+            <div class="clinic-info">
+
+                <img src="logo.png"
+                    alt="Clinic Logo"
+                    class="clinic-logo">
+
+                <div>
+
+                    <h1>ABC Clinic</h1>
+                    <p>Follow-up Patient Dashboard</p>
+
+                </div>
+
+            </div>
+
+            <!--Same Style ng Admin-->
+            <div class="admin-box">
+                Doctor
+            </div>
+
+        </header>
+
+        <!--Follow up Sectoion-->
+        <section class="followup-section">
+
+            <div class="section-header">
+                Follow-up Patient Details
+            </div>
+
+            <div class="followup-container">
+
+                <!-- PATIENT INFO -->
+                <div class="patient-card">
+
+                    <h2>Patient Information</h2>
+
+                    <div class="info-grid">
+
+                        <div class="info-box">
+
+                            <label>Patient Name</label>
+                            <p>Juan Dela Cruz</p>
+
+                        </div>
+
+                        <div class="info-box">
+
+                            <label>Age</label>
+                            <p>25 Years Old</p>
+
+                        </div>
+
+                        <div class="info-box">
+
+                            <label>Gender</label>
+                            <p>Male</p>
+
+                        </div>
+
+                        <div class="info-box">
+
+                            <label>Follow-up Date</label>
+                            <p>May 25, 2026</p>
+
+                        </div>
+
+                        <div class="info-box full-width">
+
+                            <label>Diagnosis</label>
+                            <p>Fever and Cough</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--Doctor Prescription-->
+                <div class="prescription-card">
+
+                    <h2>Doctor Prescription</h2>
+
+                    <form>
+
+                        <div class="form-group">
+
+                            <label>Medicine</label>
+
+                            <input type="text"
+                            placeholder="Enter medicine">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Dosage</label>
+
+                            <input type="text"
+                            placeholder="1 tablet twice a day">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Instructions</label>
+
+                            <textarea rows="5"
+                            placeholder="Enter doctor's instructions"></textarea>
+
+                        </div>
+
+                        <button type="submit"
+                        class="save-btn">
+
+                            Save Prescription
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+
+const name = localStorage.getItem("loggedInUser");
+const role = localStorage.getItem("userRole");
+
+/*Sidebar Name*/
+document.getElementById("doctorName").innerHTML =
+    "Ms. " + name;
+
+/*Side Bar Role*/
+document.getElementById("doctorRole").innerHTML =
+    role;
+
+</script>
+
+</body>
+</html>

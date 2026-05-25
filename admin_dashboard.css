@@ -1,0 +1,210 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+.dashboard-container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    background:#17324d;
+    color:white;
+    padding:25px 20px;
+}
+
+.sidebar-top{
+    text-align:center;
+}
+
+.profile-circle{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:#d9d9d9;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+.clinic-name h2{
+    font-size:24px;
+}
+
+.sidebar-menu{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.menu-item{
+    text-decoration:none;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    transition:0.3s;
+    display:block;
+    border:none;
+    background:none;
+    width:100%;
+    text-align:left;
+    cursor:pointer;
+
+    font-size:18px;
+    font-weight:600;
+}
+
+.menu-item:hover{
+    background:#244d75;
+}
+
+.active{
+    background:white;
+    color:#17324d;
+    font-weight:bold;
+}
+
+.logout-btn{
+    background:#c0392b;
+}
+
+.dropdown-content{
+    display:none;
+    margin-top:8px;
+    margin-left:10px;
+}
+
+.dropdown-content.show{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.dropdown-item{
+    background:#244d75;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:8px;
+}
+
+/* MAIN */
+.main-content{
+    flex:1;
+    padding:30px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+/* TOPBAR LEFT */
+.topbar-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.clinic-logo{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:50%;
+    background:white;
+    padding:5px;
+}
+
+.clinic-text h1{
+    font-size:28px;
+    color:#17324d;
+    margin-bottom:4px;
+}
+
+.clinic-text p{
+    color:#64748b;
+    font-size:14px;
+}
+
+.admin-box{
+    background:white;
+    padding:12px 20px;
+    border-radius:10px;
+}
+
+/* CARDS */
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.stat-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+}
+
+.stat-card h3{
+    color:#64748b;
+}
+
+.stat-card p{
+    font-size:36px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+/* TABLE */
+.table-section{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.section-header{
+    background:#17324d;
+    color:white;
+    padding:18px;
+    font-size:20px;
+}
+
+.appointment-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.appointment-table th,
+.appointment-table td{
+    padding:18px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.confirmed{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.pending{
+    background:#fef3c7;
+    color:#b45309;
+}
