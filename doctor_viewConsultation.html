@@ -29,10 +29,10 @@
 
                 </div>
 
-                <div class="profile-name">
+                 <div class="profile-name">
 
-                    <h2>Ms. Taroy</h2>
-                    <p>Doctor</p>
+                    <h2 id="doctorName"></h2>
+                    <p id="doctorRole"></p>
 
                 </div>
 
@@ -62,7 +62,7 @@
 
                 </a>
 
-                <a href="#"
+                <a href="index.html"
                 class="menu-item logout-btn">
 
                     Logout
@@ -93,14 +93,14 @@
 
                 <div class="clinic-info">
 
-                    <img src="logo.png"
+                    <img src="logo.jpg"
                     alt="Clinic Logo"
                     class="clinic-logo">
 
                     <div>
 
-                        <h1>ABC Clinic</h1>
-                        <p>Doctor Dashboard > Consultation Room</p>
+                        <h1>SwiftCare Clinic</h1>
+                        <p>Assigned Patient > Consultation Room</p>
 
                     </div>
 
@@ -369,6 +369,19 @@
     </main>
 
 </div>
+<script>
 
+const name = localStorage.getItem("loggedInUser");
+const role = localStorage.getItem("userRole");
+
+/*Sidebar Name*/
+document.getElementById("doctorName").innerHTML =
+    "Ms. " + name;
+
+/*Side Bar Role*/
+document.getElementById("doctorRole").innerHTML =
+    role;
+
+</script>
 </body>
 </html>
