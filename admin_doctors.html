@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0"/>
+
+    <title>Doctors</title>
+
+    <link rel="stylesheet"
+        href="admin_doctors.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!--Sidebar-->
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="sidebar-top">
+
+                <div class="profile-circle"></div>
+
+                <div class="profile-name">
+
+                    <h2 id="adminName"></h2>
+                    <p id="adminRole"></p>
+
+                </div>
+
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <!-- Dashboard -->
+                <a href="admin_dashboard.html"
+                    class="menu-item">
+
+                    Dashboard
+
+                </a>
+
+                <!-- Patients Dropdown -->
+                <div class="dropdown">
+
+                    <button class="menu-item dropdown-btn"
+                        onclick="toggleDropdown()">
+
+                        Patients
+
+                    </button>
+
+                    <div class="dropdown-content"
+                        id="patientDropdown">
+
+                        <a href="admin_registerPatient.html"
+                            class="dropdown-item">
+
+                            Register Patient
+
+                        </a>
+
+                        <a href="admin_patientRecord.html"
+                            class="dropdown-item">
+
+                            Search Patient Records
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Appointments -->
+                <a href="admin_appointment.html"
+                    class="menu-item">
+
+                    Appointments
+
+                </a>
+
+                <!-- Doctors -->
+                <a href="admin_doctors.html"
+                    class="menu-item active">
+
+                    Doctors
+
+                </a>
+
+                <!-- Logout -->
+                <a href="index.html"
+                    class="menu-item logout-btn">
+
+                    Logout
+
+                </a>
+
+            </nav>
+
+        </div>
+
+    </aside>
+
+    <!--Main Content-->
+    <main class="main-content">
+
+        <!--Topbar-->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <img src="logo.jpg"
+                    alt="Clinic Logo"
+                    class="clinic-logo">
+
+                <div class="clinic-text">
+
+                    <h1>SwiftCare Clinic</h1>
+                    <p>Clinic Appointment System</p>
+
+                </div>
+
+            </div>
+
+            <div class="admin-box">
+                Admin
+            </div>
+
+        </header>
+
+        <!--Doctor Table-->
+        <section class="table-section">
+
+            <div class="section-header">
+
+                Doctors List
+
+            </div>
+
+            <table class="doctor-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Doctor Name</th>
+                        <th>Specialization</th>
+                        <th>License Number</th>
+                        <th>Schedule Day</th>
+                        <th>Schedule Time</th>
+                        <th>Contact Number</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <!--Row 1-->
+                    <tr>
+
+                        <td>Dr. Taroy</td>
+                        <td>Cardiologist</td>
+                        <td>LIC-10231</td>
+                        <td>Monday - Friday</td>
+                        <td>9:00 AM - 3:00 PM</td>
+                        <td>09123456789</td>
+
+                        <td>
+
+                            <div class="action-box">
+
+                                <button class="edit-btn"
+                                    onclick="editDoctor(this)">
+
+                                    Edit
+
+                                </button>
+
+                                <button class="delete-btn"
+                                    onclick="deleteDoctor(this)">
+
+                                    Delete
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--Row 2-->
+                    <tr>
+
+                        <td>Dr. Tomadong</td>
+                        <td>Pediatrician</td>
+                        <td>LIC-77421</td>
+                        <td>Tuesday - Saturday</td>
+                        <td>10:00 AM - 4:00 PM</td>
+                        <td>09987654321</td>
+
+                        <td>
+
+                            <div class="action-box">
+
+                                <button class="edit-btn"
+                                    onclick="editDoctor(this)">
+
+                                    Edit
+
+                                </button>
+
+                                <button class="delete-btn"
+                                    onclick="deleteDoctor(this)">
+
+                                    Delete
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/*Drop down*/
+const dropdown =
+    document.getElementById(
+        "patientDropdown"
+    );
+
+function toggleDropdown(){
+
+    dropdown.classList.toggle(
+        "show"
+    );
+
+}
+
+/*Edit function*/
+function editDoctor(button){
+
+    const row =
+        button.parentElement.parentElement.parentElement;
+
+    const cells =
+        row.querySelectorAll("td");
+
+    const doctorName =
+        prompt(
+            "Edit Doctor Name",
+            cells[0].innerText
+        );
+
+    const specialization =
+        prompt(
+            "Edit Specialization",
+            cells[1].innerText
+        );
+
+    const license =
+        prompt(
+            "Edit License Number",
+            cells[2].innerText
+        );
+
+    const day =
+        prompt(
+            "Edit Schedule Day",
+            cells[3].innerText
+        );
+
+    const time =
+        prompt(
+            "Edit Schedule Time",
+            cells[4].innerText
+        );
+
+    const contact =
+        prompt(
+            "Edit Contact Number",
+            cells[5].innerText
+        );
+
+    if(doctorName != null){
+
+        cells[0].innerText =
+            doctorName;
+
+        cells[1].innerText =
+            specialization;
+
+        cells[2].innerText =
+            license;
+
+        cells[3].innerText =
+            day;
+
+        cells[4].innerText =
+            time;
+
+        cells[5].innerText =
+            contact;
+
+    }
+
+}
+
+/*Delete Function*/
+function deleteDoctor(button){
+
+    const row =
+        button.parentElement.parentElement.parentElement;
+
+    const confirmDelete =
+        confirm(
+            "Are you sure you want to delete this doctor?"
+        );
+
+    if(confirmDelete){
+
+        row.remove();
+
+    }
+
+}
+
+/*Admin Info*/
+const name =
+    localStorage.getItem(
+        "loggedInUser"
+    );
+
+const role =
+    localStorage.getItem(
+        "userRole"
+    );
+
+document.getElementById(
+    "adminName"
+).innerHTML =
+    "Ms. " + name;
+
+document.getElementById(
+    "adminRole"
+).innerHTML =
+    role;
+
+</script>
+
+</body>
+</html>
